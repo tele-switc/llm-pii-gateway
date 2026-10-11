@@ -100,6 +100,19 @@ _NAME_CTX_RE = re.compile(
 _NAME_PATIENT_RE = re.compile(
     r'(?:患者|病人|家属)([\u4e00-\u9fff]{2,4})(?=，|,|。|诊断|性别|年龄|入院|出院)'
 )
+# 姓名+后置职务称谓："张三丰经理"、"李总监"。这类串前面没有语境词，
+# 上面两条规则都覆盖不到；非扫描字段（顶层 user / metadata）里最常见的就是它。
+# 控 FP 的手段是首字必须落在常见姓氏表里，而不是放宽成"任意 2-4 汉字"。
+_SURNAMES = (
+    '王李张刘陈杨黄赵吴周徐孙马朱胡郭何高林罗郑梁谢宋唐许韩冯邓曹彭曾肖田董袁潘于'
+    '蒋蔡余杜叶程苏魏吕丁任沈姚卢姜崔钟谭陆汪范金石廖贾夏韦付方白邹孟熊秦邱江尹薛'
+    '闫段雷侯龙史陶黎贺顾毛郝龚邵万钱严覃武戴莫孔向汤'
+)
+_NAME_TITLE_RE = re.compile(
+    r'(?<![\u4e00-\u9fff])([' + _SURNAMES + r'][\u4e00-\u9fff]{0,3})'
+    r'(?:经理|总监|主管|总裁|董事长|主任|老师|医生|律师|工程师|教授|同事|秘书|'
+    r'会计|出纳|组长|车间主任|负责人)'
+)
 
 
 def find_names(t: str):
@@ -112,7 +125,12 @@ def find_names(t: str):
         s, e = m.start(1), m.end(1)
         if not any(e > s2 and s < e2 for s2, e2, _ in out):
             out.append((s, e, 'CN_NAME'))
-    # 3) spaCy PERSON（过滤 1 字/4 字以上，避免误报）
+    # 3) 姓名+职务称谓（"张三丰经理"）
+    for m in _NAME_TITLE_RE.finditer(t):
+        s, e = m.start(1), m.end(1)
+        if not any(e > s2 and s < e2 for s2, e2, _ in out):
+            out.append((s, e, 'CN_NAME'))
+    # 4) spaCy PERSON（过滤 1 字/4 字以上，避免误报）
     nlp = _nlp()
     if nlp is not None:
         doc = nlp(t)

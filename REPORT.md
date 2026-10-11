@@ -58,7 +58,7 @@
 | `corpus/zh_v1.jsonl` + `.labels.jsonl` | ✅ | 240 条、11 类别齐全、全合成数据、含 30% 干扰项（45 条）与无 PII 对照组（25 条） |
 | `poc/run_gateway_test.py` / `poc/grep_egress.py` | ✅ | 分母/分子逐项可追溯；grep_egress 对未脱敏语料复算命中 150/150（校验脚本有效） |
 | `out/presidio-zh.json` | ✅ | 上表，G1=FAIL（3 类超线） |
-| `gateway/config.yaml` + `gateway/pii_guardrail.py` + `recognizers/cn_recognizers.py` | ✅ | `tests/test_recognizers.py` 23/23 通过（含校验位反例、全角、跨行、中文混排五类用例）；fail-closed 验证（detector 异常 → DENY）。全套复跑（2026-10-11）：guardrail 19/19、recognizers 23/23、zh_ner 15/15、bypass **16/17**（唯一失败项见下） |
+| `gateway/config.yaml` + `gateway/pii_guardrail.py` + `recognizers/cn_recognizers.py` | ✅ | `tests/test_recognizers.py` 23/23 通过（含校验位反例、全角、跨行、中文混排五类用例）；fail-closed 验证（detector 异常 → DENY）。全套复跑（2026-10-11）：guardrail 19/19、recognizers 23/23、zh_ner 15/15、bypass 17/17 |
 | `audit/schema.jsonl` + `audit/queries.md` | ✅ | 满足 G3 的 5 分钟还原查询（Q1/Q2/Q3 已写命令）；**首次演练未做**（§9.1 要求"演练一次并记录耗时"） |
 | `runbook/incident.md` | ✅ | 同上，演练记录待首填 |
 | `REPORT.md` | 本文 | — |

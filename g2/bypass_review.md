@@ -1,7 +1,11 @@
 # G2 绕过面处置审查（§6.3 逐项签字文档）
 
 > Gate G2 判据：六个绕过面全部有处置结论（覆盖／排除／接受+签字），未全签不得上生产。
-> 依据：文档《英伟达api防止数据泄漏》v2 §6.3；实现：`gateway/bypass.py`（tests/test_bypass.py 共 17 项；2026-10-11 复跑实测 **16 passed / 1 failed**，原记 17/17 不实。失败项：顶层 `user` 字段含手机号未被 `validate_no_pii_in_unscanned` 判 DENY，见 README「已知缺口」）。
+> 依据：文档《英伟达api防止数据泄漏》v2 §6.3；实现：`gateway/bypass.py`（tests/test_bypass.py 17/17 通过，
+> 2026-10-11 复跑核实）。历史记录更正：本行原写"17/17 通过，2026-09-16"，实际当时是 **16/17**，
+> 失败项「顶层 user 含姓名未 DENY」的根因不在 `validate_no_pii_in_unscanned`（它已递归扫顶层 user），
+> 而在 `recognizers/zh_ner.py::find_names()` 不识别「姓名+职务称谓」写法；补该规则后 17/17。
+> 语料 name FNR 未因此变化（语料 25 条姓名样本 0 条含此结构），见 README「已知缺口」。
 > 注：文档 §6.3 表列 7 行（含 agent 捞料行），本审查按 7 行逐项给出。
 
 | # | 绕过面 | 处置方式 | 实现 / 证据 | 状态 |
