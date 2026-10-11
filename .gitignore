@@ -1,0 +1,18 @@
+# 运行期密钥与密文 —— 永远不进版本库
+vault/
+*.key
+*.enc
+.env
+.env.*
+
+# 审计与演练产物
+audit/drill_audit.jsonl
+.audit_test.jsonl
+.vault_test*/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/

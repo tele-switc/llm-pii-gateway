@@ -1,0 +1,61 @@
+# LiteLLM 出口网关配置（文档 §5）
+# 原则：唯一出口（127.0.0.1:4000）、默认拒绝、失败即关闭、审计每请求。
+#
+# 硬约束映射：
+#   - §5.1  出口收敛：所有应用只允许配 base_url=http://127.0.0.1:4000；NVIDIA_API_KEY 仅存在于本进程环境
+#   - §5.3  fail-closed：guardrail 异常/超时 → 阻断请求（默认 litellm guardrail 行为即 blocking）
+#   - §5.4  NVIDIA 免费端点仅 D0/D1；D2 仅在 §4 实测达标类别上放行且必须 ZDR 供应商；D3 一律不出网
+#   - §5.5  审计 JSONL：ts, request_id, actor, data_class_claimed, detected_classes,
+#           egress_decision, provider, model, redacted_body_sha256, placeholder_map_ref, fnr_sentinel_hits
+
+model_list:
+  # ── 本地分支（D2/D3 的唯一去处；fail-closed 时 D2/D3 只允许打这里）──
+  - model_name: local-default
+    litellm_params:
+      model: ollama/qwen2.5:7b-instruct        # 8GB 显存档本地模型可承载（评估结论 #1）
+      api_base: http://127.0.0.1:11434
+      # 本地模型不可用时直接报错 —— 不设任何 fallback
+
+  # ── ZDR 云端分支（仅 D1 / 实测达标的 D2 脱敏后）──
+  - model_name: zdr-openrouter
+    litellm_params:
+      model: openrouter/openai/gpt-oss-120b    # 示例；请求级再带 provider.zdr=true
+      api_key: os.environ/OPENROUTER_API_KEY
+      extra_body:
+        provider:
+          zdr: true
+          data_collection: "deny"
+          allow_fallbacks: true
+
+  # ── NVIDIA 免费端点（仅 D0/D1，原型/评测用途，~40 RPM 限速）──
+  - model_name: nvidia-free
+    litellm_params:
+      model: nvidia_nim/meta/llama-3.1-8b-instruct
+      api_key: os.environ/NVIDIA_API_KEY
+      rpm: 40
+      num_retries: 3
+      timeout: 60
+
+router_settings:
+  # 请求级路由由 guardrail 依据 data_class 决策；缺失标签 = D3（默认拒绝，§5.3 第 2 条）
+  routing_strategy: simple-shuffle
+  num_retries: 0            # 云端失败不重试到其他云端（禁止静默降级）
+  fallbacks: []             # 无 fallback —— fail-closed
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  audit_logs: true          # litellm 自带审计回调，另加自定义 JSONL（见 guardrail）
+
+litellm_settings:
+  # 自定义 guardrail：检测 → 分级 → 路由/拒绝（见 gateway/pii_guardrail.py）
+  callbacks: ["gateway.pii_guardrail.pii_guardrail"]
+  request_timeout: 30
+
+# ─────────────────────────────────────────────────────────────
+# 真实部署注意（当前为 Stage 0 交付，未接线上流量）：
+# 1. 启动前先跑 tests/test_recognizers.py（23 项全过才可起服）。
+# 2. NIM_TELEMETRY_MODE 是自托管 NIM 分支的开关，纯云端调用无落点（§1.2 勘误 E4），
+#    不要把它写进本配置当防护措施。
+# 3. Bedrock 分支如启用：账号/项目级 data_retention_mode=none + SCP 强制（§5.4，勘误 E5）。
+# 4. placeholder vault：映射表加密存放、密钥独立存放不与 vault 同备份（§6.2）。
+# ─────────────────────────────────────────────────────────────

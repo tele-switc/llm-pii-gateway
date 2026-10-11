@@ -1,0 +1,12 @@
+# 必需：占位符保险箱的 Fernet 加密
+cryptography>=41.0
+
+# 可选：中文姓名 NER 增强。不装则 recognizers/zh_ner.py 自动降级为纯规则层，
+# 单测与评测仍可跑（本机实测：未装 spacy 时 15/15、23/23 照样通过）。
+# 安装方式：
+#   pip install spacy
+#   python -m spacy download zh_core_web_sm
+# spacy>=3.7
+
+# 部署侧：真要起 LiteLLM 网关时才需要
+# litellm>=1.40

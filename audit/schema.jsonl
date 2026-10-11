@@ -1,0 +1,2 @@
+{"fields": ["ts", "request_id", "actor", "data_class_claimed", "detected_classes", "egress_decision", "provider", "model", "redacted_body_sha256", "redacted_body_len", "placeholder_map_ref", "fnr_sentinel_hits", "error?"],
+ "description": "审计日志 schema（§5.5）。每请求一行 JSONL。存 redacted_body 哈希与长度，不存原文；placeholder_map_ref 指向 vault 条目而非映射本身。egress_decision ∈ {LOCAL, ZDRCLOUD, DENY}。"}

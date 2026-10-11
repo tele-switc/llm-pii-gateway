@@ -1,0 +1,240 @@
+{"id": "zh_v1_0001", "category": "id_card", "text": "员工入职登记表\n姓名: 陈涛\n证件号码: 510107200402242114\n有效期至 2030 年", "entities": [{"type": "CN_ID_CARD", "start": 21, "end": 39, "value": "510107200402242114"}]}
+{"id": "zh_v1_0002", "category": "id_card", "text": "复印件信息（全角录入）：证件号 ３２０１０２１９８１１２０１８７１５，请核对。", "entities": [{"type": "CN_ID_CARD_FW", "start": 16, "end": 34, "value": "３２０１０２１９８１１２０１８７１５"}]}
+{"id": "zh_v1_0003", "category": "id_card", "text": "身份证号:\n330106197\n33010619780318458X", "entities": [{"type": "CN_ID_CARD_SPLIT", "start": 16, "end": 34, "value": "33010619780318458X"}]}
+{"id": "zh_v1_0004", "category": "id_card", "text": "客户提供的号码为 110105196201041574，系统提示校验失败。", "entities": [{"type": "CN_ID_CARD_BADCHECK", "start": 9, "end": 27, "value": "110105196201041574"}]}
+{"id": "zh_v1_0005", "category": "id_card", "text": "客户提供的号码为 440304200101097487，系统提示校验失败。", "entities": [{"type": "CN_ID_CARD_BADCHECK", "start": 9, "end": 27, "value": "440304200101097487"}]}
+{"id": "zh_v1_0006", "category": "id_card", "text": "身份证号: 330106200112065025", "entities": [{"type": "CN_ID_CARD", "start": 6, "end": 24, "value": "330106200112065025"}]}
+{"id": "zh_v1_0007", "category": "id_card", "text": "实名核验通过，证件号 330106197904115700，姓名李磊。", "entities": [{"type": "CN_ID_CARD", "start": 11, "end": 29, "value": "330106197904115700"}]}
+{"id": "zh_v1_0008", "category": "id_card", "text": "实名核验通过，证件号 110105197902268271，姓名李磊。", "entities": [{"type": "CN_ID_CARD", "start": 11, "end": 29, "value": "110105197902268271"}]}
+{"id": "zh_v1_0009", "category": "id_card", "text": "身份证号: 330106196905051644", "entities": [{"type": "CN_ID_CARD", "start": 6, "end": 24, "value": "330106196905051644"}]}
+{"id": "zh_v1_0010", "category": "id_card", "text": "用户 idCard=440304196703283416 提交于今日", "entities": [{"type": "CN_ID_CARD", "start": 10, "end": 28, "value": "440304196703283416"}]}
+{"id": "zh_v1_0011", "category": "id_card", "text": "用户 idCard=510107199911037711 提交于今日", "entities": [{"type": "CN_ID_CARD", "start": 10, "end": 28, "value": "510107199911037711"}]}
+{"id": "zh_v1_0012", "category": "id_card", "text": "请携带身份证（号码 110105196909073106）办理入职手续。\n前台电话 010-88886666。", "entities": [{"type": "CN_ID_CARD", "start": 10, "end": 28, "value": "110105196909073106"}]}
+{"id": "zh_v1_0013", "category": "id_card", "text": "实名核验通过，证件号 440304198605280288，姓名李磊。", "entities": [{"type": "CN_ID_CARD", "start": 11, "end": 29, "value": "440304198605280288"}]}
+{"id": "zh_v1_0014", "category": "id_card", "text": "身份证号: 330106200201045675", "entities": [{"type": "CN_ID_CARD", "start": 6, "end": 24, "value": "330106200201045675"}]}
+{"id": "zh_v1_0015", "category": "id_card", "text": "实名核验通过，证件号 11010519660422820X，姓名李磊。", "entities": [{"type": "CN_ID_CARD", "start": 11, "end": 29, "value": "11010519660422820X"}]}
+{"id": "zh_v1_0016", "category": "id_card", "text": "实名核验通过，证件号 320102197108192345，姓名李磊。", "entities": [{"type": "CN_ID_CARD", "start": 11, "end": 29, "value": "320102197108192345"}]}
+{"id": "zh_v1_0017", "category": "id_card", "text": "请携带身份证（号码 510107200107169989）办理入职手续。\n前台电话 010-88886666。", "entities": [{"type": "CN_ID_CARD", "start": 10, "end": 28, "value": "510107200107169989"}]}
+{"id": "zh_v1_0018", "category": "id_card", "text": "实名核验通过，证件号 110105199803101248，姓名李磊。", "entities": [{"type": "CN_ID_CARD", "start": 11, "end": 29, "value": "110105199803101248"}]}
+{"id": "zh_v1_0019", "category": "id_card", "text": "用户 idCard=320102197503146621 提交于今日", "entities": [{"type": "CN_ID_CARD", "start": 10, "end": 28, "value": "320102197503146621"}]}
+{"id": "zh_v1_0020", "category": "id_card", "text": "请携带身份证（号码 320102197004089060）办理入职手续。\n前台电话 010-88886666。", "entities": [{"type": "CN_ID_CARD", "start": 10, "end": 28, "value": "320102197004089060"}]}
+{"id": "zh_v1_0021", "category": "mobile", "text": "联系电话 +86 138-9804-4063，请勿外传。", "entities": [{"type": "CN_MOBILE", "start": 9, "end": 22, "value": "138-9804-4063"}]}
+{"id": "zh_v1_0022", "category": "mobile", "text": "手机号：186-****-5138，请核对。", "entities": [{"type": "CN_MOBILE_MASKED", "start": 4, "end": 17, "value": "186-****-5138"}]}
+{"id": "zh_v1_0023", "category": "mobile", "text": "联系电话：17617178390", "entities": [{"type": "CN_MOBILE", "start": 5, "end": 16, "value": "17617178390"}]}
+{"id": "zh_v1_0024", "category": "mobile", "text": "tel:18639802627", "entities": [{"type": "CN_MOBILE", "start": 4, "end": 15, "value": "18639802627"}]}
+{"id": "zh_v1_0025", "category": "mobile", "text": "联系电话：15931263833", "entities": [{"type": "CN_MOBILE", "start": 5, "end": 16, "value": "15931263833"}]}
+{"id": "zh_v1_0026", "category": "mobile", "text": "tel:19938572466", "entities": [{"type": "CN_MOBILE", "start": 4, "end": 15, "value": "19938572466"}]}
+{"id": "zh_v1_0027", "category": "mobile", "text": "手机 19983277759", "entities": [{"type": "CN_MOBILE", "start": 3, "end": 14, "value": "19983277759"}]}
+{"id": "zh_v1_0028", "category": "mobile", "text": "联系电话：17616402934", "entities": [{"type": "CN_MOBILE", "start": 5, "end": 16, "value": "17616402934"}]}
+{"id": "zh_v1_0029", "category": "mobile", "text": "请致电 13083397202 确认订单", "entities": [{"type": "CN_MOBILE", "start": 4, "end": 15, "value": "13083397202"}]}
+{"id": "zh_v1_0030", "category": "mobile", "text": "手机 13814689131", "entities": [{"type": "CN_MOBILE", "start": 3, "end": 14, "value": "13814689131"}]}
+{"id": "zh_v1_0031", "category": "mobile", "text": "tel:13021964318", "entities": [{"type": "CN_MOBILE", "start": 4, "end": 15, "value": "13021964318"}]}
+{"id": "zh_v1_0032", "category": "mobile", "text": "请致电 13078119963 确认订单", "entities": [{"type": "CN_MOBILE", "start": 4, "end": 15, "value": "13078119963"}]}
+{"id": "zh_v1_0033", "category": "mobile", "text": "请致电 13059482814 确认订单", "entities": [{"type": "CN_MOBILE", "start": 4, "end": 15, "value": "13059482814"}]}
+{"id": "zh_v1_0034", "category": "mobile", "text": "手机 18680707397", "entities": [{"type": "CN_MOBILE", "start": 3, "end": 14, "value": "18680707397"}]}
+{"id": "zh_v1_0035", "category": "mobile", "text": "tel:15937372761", "entities": [{"type": "CN_MOBILE", "start": 4, "end": 15, "value": "15937372761"}]}
+{"id": "zh_v1_0036", "category": "mobile", "text": "联系电话：13085683729", "entities": [{"type": "CN_MOBILE", "start": 5, "end": 16, "value": "13085683729"}]}
+{"id": "zh_v1_0037", "category": "mobile", "text": "联系电话：13842004966", "entities": [{"type": "CN_MOBILE", "start": 5, "end": 16, "value": "13842004966"}]}
+{"id": "zh_v1_0038", "category": "mobile", "text": "请致电 17659089287 确认订单", "entities": [{"type": "CN_MOBILE", "start": 4, "end": 15, "value": "17659089287"}]}
+{"id": "zh_v1_0039", "category": "mobile", "text": "手机 13029686865", "entities": [{"type": "CN_MOBILE", "start": 3, "end": 14, "value": "13029686865"}]}
+{"id": "zh_v1_0040", "category": "mobile", "text": "联系电话：17642006464", "entities": [{"type": "CN_MOBILE", "start": 5, "end": 16, "value": "17642006464"}]}
+{"id": "zh_v1_0041", "category": "name", "text": "联系人：王丽，电话见通讯录。", "entities": [{"type": "CN_NAME", "start": 4, "end": 6, "value": "王丽"}]}
+{"id": "zh_v1_0042", "category": "name", "text": "联系人：Qewcnwzc，电话见通讯录。", "entities": [{"type": "CN_NAME", "start": 4, "end": 12, "value": "Qewcnwzc"}]}
+{"id": "zh_v1_0043", "category": "name", "text": "联系人：司马桂丽，电话见通讯录。", "entities": [{"type": "CN_NAME", "start": 4, "end": 8, "value": "司马桂丽"}]}
+{"id": "zh_v1_0044", "category": "name", "text": "Ywjtygy 负责本项目，Y某（即 Ywjtygy）确认后推进，Y先生的意见已记录。", "entities": [{"type": "CN_NAME_COREF", "start": 0, "end": 7, "value": "Ywjtygy"}]}
+{"id": "zh_v1_0045", "category": "name", "text": "Idjb 负责本项目，I某（即 Idjb）确认后推进，I先生的意见已记录。", "entities": [{"type": "CN_NAME_COREF", "start": 0, "end": 4, "value": "Idjb"}]}
+{"id": "zh_v1_0046", "category": "name", "text": "赵秀兰 负责本项目，赵某（即 赵秀兰）确认后推进，赵先生的意见已记录。", "entities": [{"type": "CN_NAME_COREF", "start": 0, "end": 3, "value": "赵秀兰"}]}
+{"id": "zh_v1_0047", "category": "name", "text": "施超娜 已提交审批", "entities": [{"type": "CN_NAME", "start": 0, "end": 3, "value": "施超娜"}]}
+{"id": "zh_v1_0048", "category": "name", "text": "孔伟 已提交审批", "entities": [{"type": "CN_NAME", "start": 0, "end": 2, "value": "孔伟"}]}
+{"id": "zh_v1_0049", "category": "name", "text": "负责人 司马秀娜 于会议纪要签署", "entities": [{"type": "CN_NAME", "start": 4, "end": 8, "value": "司马秀娜"}]}
+{"id": "zh_v1_0050", "category": "name", "text": "何桂 已提交审批", "entities": [{"type": "CN_NAME", "start": 0, "end": 2, "value": "何桂"}]}
+{"id": "zh_v1_0051", "category": "name", "text": "负责人 司马明娟 于会议纪要签署", "entities": [{"type": "CN_NAME", "start": 4, "end": 8, "value": "司马明娟"}]}
+{"id": "zh_v1_0052", "category": "name", "text": "负责人 欧阳伟艳 于会议纪要签署", "entities": [{"type": "CN_NAME", "start": 4, "end": 8, "value": "欧阳伟艳"}]}
+{"id": "zh_v1_0053", "category": "name", "text": "经手人: 吕洋", "entities": [{"type": "CN_NAME", "start": 5, "end": 7, "value": "吕洋"}]}
+{"id": "zh_v1_0054", "category": "name", "text": "经手人: 冯平秀", "entities": [{"type": "CN_NAME", "start": 5, "end": 8, "value": "冯平秀"}]}
+{"id": "zh_v1_0055", "category": "name", "text": "经手人: 上官涛芳", "entities": [{"type": "CN_NAME", "start": 5, "end": 9, "value": "上官涛芳"}]}
+{"id": "zh_v1_0056", "category": "name", "text": "经手人: 司马秀伟", "entities": [{"type": "CN_NAME", "start": 5, "end": 9, "value": "司马秀伟"}]}
+{"id": "zh_v1_0057", "category": "name", "text": "由 施兰 传达", "entities": [{"type": "CN_NAME", "start": 2, "end": 4, "value": "施兰"}]}
+{"id": "zh_v1_0058", "category": "name", "text": "负责人 司马刚霞 于会议纪要签署", "entities": [{"type": "CN_NAME", "start": 4, "end": 8, "value": "司马刚霞"}]}
+{"id": "zh_v1_0059", "category": "name", "text": "负责人 钱杰静 于会议纪要签署", "entities": [{"type": "CN_NAME", "start": 4, "end": 7, "value": "钱杰静"}]}
+{"id": "zh_v1_0060", "category": "name", "text": "负责人 Dzsmxle 于会议纪要签署", "entities": [{"type": "CN_NAME", "start": 4, "end": 11, "value": "Dzsmxle"}]}
+{"id": "zh_v1_0061", "category": "name", "text": "经手人: Pjfv", "entities": [{"type": "CN_NAME", "start": 5, "end": 9, "value": "Pjfv"}]}
+{"id": "zh_v1_0062", "category": "name", "text": "经手人: 蒋伟艳", "entities": [{"type": "CN_NAME", "start": 5, "end": 8, "value": "蒋伟艳"}]}
+{"id": "zh_v1_0063", "category": "name", "text": "经手人: 上官勇秀", "entities": [{"type": "CN_NAME", "start": 5, "end": 9, "value": "上官勇秀"}]}
+{"id": "zh_v1_0064", "category": "name", "text": "由 朱丽 传达", "entities": [{"type": "CN_NAME", "start": 2, "end": 4, "value": "朱丽"}]}
+{"id": "zh_v1_0065", "category": "name", "text": "经手人: Zuwfkl", "entities": [{"type": "CN_NAME", "start": 5, "end": 11, "value": "Zuwfkl"}]}
+{"id": "zh_v1_0066", "category": "address", "text": "收件地址：上海市南京市解路921号\n上海市南京市解路921号花园小区A座1680室", "entities": [{"type": "CN_ADDRESS_SPLIT", "start": 18, "end": 41, "value": "上海市南京市解路921号花园小区A座1680室"}]}
+{"id": "zh_v1_0067", "category": "address", "text": "Ship to: 上海市深圳市平路932号花园小区1370室 (Pudong area)", "entities": [{"type": "CN_ADDRESS_MIXED", "start": 9, "end": 30, "value": "上海市深圳市平路932号花园小区1370室"}]}
+{"id": "zh_v1_0068", "category": "address", "text": "寄往 上海市南京市和路187号金茂大厦B栋2181室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 26, "value": "上海市南京市和路187号金茂大厦B栋2181室"}]}
+{"id": "zh_v1_0069", "category": "address", "text": "地址：四川省成都市山路367号金茂大厦B栋2313室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 26, "value": "四川省成都市山路367号金茂大厦B栋2313室"}]}
+{"id": "zh_v1_0070", "category": "address", "text": "地址：北京市深圳市和路354号金茂大厦A座3060室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 26, "value": "北京市深圳市和路354号金茂大厦A座3060室"}]}
+{"id": "zh_v1_0071", "category": "address", "text": "寄往 四川省南京市和路143号花园小区B栋2204室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 26, "value": "四川省南京市和路143号花园小区B栋2204室"}]}
+{"id": "zh_v1_0072", "category": "address", "text": "办公地点 四川省南京市解路257号金茂大厦972室", "entities": [{"type": "CN_ADDRESS", "start": 5, "end": 25, "value": "四川省南京市解路257号金茂大厦972室"}]}
+{"id": "zh_v1_0073", "category": "address", "text": "办公地点 广东省成都市放路2号花园小区A座2133室", "entities": [{"type": "CN_ADDRESS", "start": 5, "end": 26, "value": "广东省成都市放路2号花园小区A座2133室"}]}
+{"id": "zh_v1_0074", "category": "address", "text": "地址：四川省朝阳区设路663号科技园2987室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 23, "value": "四川省朝阳区设路663号科技园2987室"}]}
+{"id": "zh_v1_0075", "category": "address", "text": "地址：四川省深圳市解路150号金茂大厦A座214室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 25, "value": "四川省深圳市解路150号金茂大厦A座214室"}]}
+{"id": "zh_v1_0076", "category": "address", "text": "办公地点 北京市成都市山路230号花园小区A座1674室", "entities": [{"type": "CN_ADDRESS", "start": 5, "end": 28, "value": "北京市成都市山路230号花园小区A座1674室"}]}
+{"id": "zh_v1_0077", "category": "address", "text": "寄往 上海市南京市建路8号花园小区A座1805室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 24, "value": "上海市南京市建路8号花园小区A座1805室"}]}
+{"id": "zh_v1_0078", "category": "address", "text": "地址：广东省浦东新区人路800号科技园1862室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 24, "value": "广东省浦东新区人路800号科技园1862室"}]}
+{"id": "zh_v1_0079", "category": "address", "text": "办公地点 北京市南京市设路925号金茂大厦B栋1278室", "entities": [{"type": "CN_ADDRESS", "start": 5, "end": 28, "value": "北京市南京市设路925号金茂大厦B栋1278室"}]}
+{"id": "zh_v1_0080", "category": "address", "text": "办公地点 上海市成都市民路603号金茂大厦1011室", "entities": [{"type": "CN_ADDRESS", "start": 5, "end": 26, "value": "上海市成都市民路603号金茂大厦1011室"}]}
+{"id": "zh_v1_0081", "category": "address", "text": "寄往 北京市浦东新区解路195号科技园2878室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 24, "value": "北京市浦东新区解路195号科技园2878室"}]}
+{"id": "zh_v1_0082", "category": "address", "text": "寄往 北京市浦东新区民路585号金茂大厦2865室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 25, "value": "北京市浦东新区民路585号金茂大厦2865室"}]}
+{"id": "zh_v1_0083", "category": "address", "text": "办公地点 四川省南京市解路871号金茂大厦B栋2003室", "entities": [{"type": "CN_ADDRESS", "start": 5, "end": 28, "value": "四川省南京市解路871号金茂大厦B栋2003室"}]}
+{"id": "zh_v1_0084", "category": "address", "text": "地址：广东省深圳市人路396号科技园B栋2884室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 25, "value": "广东省深圳市人路396号科技园B栋2884室"}]}
+{"id": "zh_v1_0085", "category": "address", "text": "寄往 广东省朝阳区建路285号金茂大厦B栋1195室", "entities": [{"type": "CN_ADDRESS", "start": 3, "end": 26, "value": "广东省朝阳区建路285号金茂大厦B栋1195室"}]}
+{"id": "zh_v1_0086", "category": "uscc", "text": "企业信用代码 1GCMMRR72MT9MB7R3Y 工商登记", "entities": [{"type": "CN_USCC_BADCHECK", "start": 7, "end": 25, "value": "1GCMMRR72MT9MB7R3Y"}]}
+{"id": "zh_v1_0087", "category": "uscc", "text": "企业信用代码 1PREJ62XM2Y24AUG9A 工商登记", "entities": [{"type": "CN_USCC", "start": 7, "end": 25, "value": "1PREJ62XM2Y24AUG9A"}]}
+{"id": "zh_v1_0088", "category": "uscc", "text": "USCC=9TE6QTY8LX5QXMLNJA", "entities": [{"type": "CN_USCC", "start": 5, "end": 23, "value": "9TE6QTY8LX5QXMLNJA"}]}
+{"id": "zh_v1_0089", "category": "uscc", "text": "企业信用代码 9DRHQB71J5KLEL7B7G 工商登记", "entities": [{"type": "CN_USCC", "start": 7, "end": 25, "value": "9DRHQB71J5KLEL7B7G"}]}
+{"id": "zh_v1_0090", "category": "uscc", "text": "统一社会信用代码: 1WL9MT259RXPBMJWT1", "entities": [{"type": "CN_USCC", "start": 10, "end": 28, "value": "1WL9MT259RXPBMJWT1"}]}
+{"id": "zh_v1_0091", "category": "uscc", "text": "统一社会信用代码: 2J872QXR4QNA0TD8JK", "entities": [{"type": "CN_USCC", "start": 10, "end": 28, "value": "2J872QXR4QNA0TD8JK"}]}
+{"id": "zh_v1_0092", "category": "uscc", "text": "企业信用代码 3476D5PGAF611AGU5Y 工商登记", "entities": [{"type": "CN_USCC", "start": 7, "end": 25, "value": "3476D5PGAF611AGU5Y"}]}
+{"id": "zh_v1_0093", "category": "uscc", "text": "企业信用代码 3G2407A2KL84BKAET6 工商登记", "entities": [{"type": "CN_USCC", "start": 7, "end": 25, "value": "3G2407A2KL84BKAET6"}]}
+{"id": "zh_v1_0094", "category": "uscc", "text": "USCC=3UC5Q1XG6NR5E3KRJL", "entities": [{"type": "CN_USCC", "start": 5, "end": 23, "value": "3UC5Q1XG6NR5E3KRJL"}]}
+{"id": "zh_v1_0095", "category": "uscc", "text": "企业信用代码 2LBLU3KNL7FBFW4KFX 工商登记", "entities": [{"type": "CN_USCC", "start": 7, "end": 25, "value": "2LBLU3KNL7FBFW4KFX"}]}
+{"id": "zh_v1_0096", "category": "uscc", "text": "企业信用代码 2M3NK17P5C3UX2QQUA 工商登记", "entities": [{"type": "CN_USCC", "start": 7, "end": 25, "value": "2M3NK17P5C3UX2QQUA"}]}
+{"id": "zh_v1_0097", "category": "uscc", "text": "USCC=97KB4XA1RC9DJ13N8A", "entities": [{"type": "CN_USCC", "start": 5, "end": 23, "value": "97KB4XA1RC9DJ13N8A"}]}
+{"id": "zh_v1_0098", "category": "uscc", "text": "企业信用代码 9XLD6G1NK0PQDJEEJK 工商登记", "entities": [{"type": "CN_USCC", "start": 7, "end": 25, "value": "9XLD6G1NK0PQDJEEJK"}]}
+{"id": "zh_v1_0099", "category": "uscc", "text": "USCC=2FT2BKB6UNK0DTK88K", "entities": [{"type": "CN_USCC", "start": 5, "end": 23, "value": "2FT2BKB6UNK0DTK88K"}]}
+{"id": "zh_v1_0100", "category": "uscc", "text": "企业信用代码 2R2YWMGMA7DHMAQ1GW 工商登记", "entities": [{"type": "CN_USCC", "start": 7, "end": 25, "value": "2R2YWMGMA7DHMAQ1GW"}]}
+{"id": "zh_v1_0101", "category": "bank_card", "text": "工行卡号 6216661073235304105", "entities": [{"type": "CN_BANK_CARD", "start": 5, "end": 24, "value": "6216661073235304105"}]}
+{"id": "zh_v1_0102", "category": "bank_card", "text": "工行卡号 62220253404271818", "entities": [{"type": "CN_BANK_CARD", "start": 5, "end": 22, "value": "62220253404271818"}]}
+{"id": "zh_v1_0103", "category": "bank_card", "text": "招行储蓄卡 62166672141486171 绑定成功", "entities": [{"type": "CN_BANK_CARD", "start": 6, "end": 23, "value": "62166672141486171"}]}
+{"id": "zh_v1_0104", "category": "bank_card", "text": "招行储蓄卡 6222020191432563 绑定成功", "entities": [{"type": "CN_BANK_CARD", "start": 6, "end": 22, "value": "6222020191432563"}]}
+{"id": "zh_v1_0105", "category": "bank_card", "text": "工行卡号 62226003130381512", "entities": [{"type": "CN_BANK_CARD", "start": 5, "end": 22, "value": "62226003130381512"}]}
+{"id": "zh_v1_0106", "category": "bank_card", "text": "招行储蓄卡 6222608234142809 绑定成功", "entities": [{"type": "CN_BANK_CARD", "start": 6, "end": 22, "value": "6222608234142809"}]}
+{"id": "zh_v1_0107", "category": "bank_card", "text": "工行卡号 62170022191219052", "entities": [{"type": "CN_BANK_CARD", "start": 5, "end": 22, "value": "62170022191219052"}]}
+{"id": "zh_v1_0108", "category": "bank_card", "text": "bankCard: \"6217004830121065\"", "entities": [{"type": "CN_BANK_CARD", "start": 11, "end": 27, "value": "6217004830121065"}]}
+{"id": "zh_v1_0109", "category": "bank_card", "text": "招行储蓄卡 6217000896422071675 绑定成功", "entities": [{"type": "CN_BANK_CARD", "start": 6, "end": 25, "value": "6217000896422071675"}]}
+{"id": "zh_v1_0110", "category": "bank_card", "text": "工行卡号 62226016615978396", "entities": [{"type": "CN_BANK_CARD", "start": 5, "end": 22, "value": "62226016615978396"}]}
+{"id": "zh_v1_0111", "category": "bank_card", "text": "bankCard: \"62166698279649892\"", "entities": [{"type": "CN_BANK_CARD", "start": 11, "end": 28, "value": "62166698279649892"}]}
+{"id": "zh_v1_0112", "category": "bank_card", "text": "工行卡号 6216666041436002", "entities": [{"type": "CN_BANK_CARD", "start": 5, "end": 21, "value": "6216666041436002"}]}
+{"id": "zh_v1_0113", "category": "bank_card", "text": "bankCard: \"6222024244559554\"", "entities": [{"type": "CN_BANK_CARD", "start": 11, "end": 27, "value": "6222024244559554"}]}
+{"id": "zh_v1_0114", "category": "bank_card", "text": "bankCard: \"62220297546548211\"", "entities": [{"type": "CN_BANK_CARD", "start": 11, "end": 28, "value": "62220297546548211"}]}
+{"id": "zh_v1_0115", "category": "bank_card", "text": "工行卡号 6216669513074244", "entities": [{"type": "CN_BANK_CARD", "start": 5, "end": 21, "value": "6216669513074244"}]}
+{"id": "zh_v1_0116", "category": "email", "text": "EMAIL: zhang.wei@example.com", "entities": [{"type": "EMAIL", "start": 7, "end": 28, "value": "zhang.wei@example.com"}]}
+{"id": "zh_v1_0117", "category": "email", "text": "邮箱 dev.team@test.example.org", "entities": [{"type": "EMAIL", "start": 3, "end": 28, "value": "dev.team@test.example.org"}]}
+{"id": "zh_v1_0118", "category": "email", "text": "EMAIL: zhang.wei@test.example.org", "entities": [{"type": "EMAIL", "start": 7, "end": 33, "value": "zhang.wei@test.example.org"}]}
+{"id": "zh_v1_0119", "category": "email", "text": "邮箱 li_na+hr@test.example.org", "entities": [{"type": "EMAIL", "start": 3, "end": 28, "value": "li_na+hr@test.example.org"}]}
+{"id": "zh_v1_0120", "category": "email", "text": "邮箱 dev.team@example.com", "entities": [{"type": "EMAIL", "start": 3, "end": 23, "value": "dev.team@example.com"}]}
+{"id": "zh_v1_0121", "category": "email", "text": "EMAIL: wang.fang@corp.example.cn", "entities": [{"type": "EMAIL", "start": 7, "end": 32, "value": "wang.fang@corp.example.cn"}]}
+{"id": "zh_v1_0122", "category": "email", "text": "联系 dev.team@example.com 获取报价", "entities": [{"type": "EMAIL", "start": 3, "end": 23, "value": "dev.team@example.com"}]}
+{"id": "zh_v1_0123", "category": "email", "text": "EMAIL: zhang.wei@test.example.org", "entities": [{"type": "EMAIL", "start": 7, "end": 33, "value": "zhang.wei@test.example.org"}]}
+{"id": "zh_v1_0124", "category": "email", "text": "联系 zhang.wei@example.com 获取报价", "entities": [{"type": "EMAIL", "start": 3, "end": 24, "value": "zhang.wei@example.com"}]}
+{"id": "zh_v1_0125", "category": "email", "text": "联系 li_na+hr@corp.example.cn 获取报价", "entities": [{"type": "EMAIL", "start": 3, "end": 27, "value": "li_na+hr@corp.example.cn"}]}
+{"id": "zh_v1_0126", "category": "email", "text": "联系 li_na+hr@corp.example.cn 获取报价", "entities": [{"type": "EMAIL", "start": 3, "end": 27, "value": "li_na+hr@corp.example.cn"}]}
+{"id": "zh_v1_0127", "category": "email", "text": "邮箱 zhang.wei@test.example.org", "entities": [{"type": "EMAIL", "start": 3, "end": 29, "value": "zhang.wei@test.example.org"}]}
+{"id": "zh_v1_0128", "category": "email", "text": "邮箱 wang.fang@corp.example.cn", "entities": [{"type": "EMAIL", "start": 3, "end": 28, "value": "wang.fang@corp.example.cn"}]}
+{"id": "zh_v1_0129", "category": "email", "text": "邮箱 wang.fang@test.example.org", "entities": [{"type": "EMAIL", "start": 3, "end": 29, "value": "wang.fang@test.example.org"}]}
+{"id": "zh_v1_0130", "category": "email", "text": "邮箱 li_na+hr@test.example.org", "entities": [{"type": "EMAIL", "start": 3, "end": 28, "value": "li_na+hr@test.example.org"}]}
+{"id": "zh_v1_0131", "category": "health", "text": "患者Wveuvg，诊断：原发性高血压 III 级。用药：布地奈德吸入。住院号 ZY4805144。", "entities": [{"type": "MEDICAL_RECORD", "start": 39, "end": 48, "value": "ZY4805144"}]}
+{"id": "zh_v1_0132", "category": "health", "text": "患者上官平英，诊断：慢性浅表性胃炎。用药：氨氯地平 5mg qd。住院号 ZY2539808。", "entities": [{"type": "MEDICAL_RECORD", "start": 37, "end": 46, "value": "ZY2539808"}]}
+{"id": "zh_v1_0133", "category": "health", "text": "患者司马平勇，诊断：2 型糖尿病。用药：布地奈德吸入。住院号 ZY6991691。", "entities": [{"type": "MEDICAL_RECORD", "start": 31, "end": 40, "value": "ZY6991691"}]}
+{"id": "zh_v1_0134", "category": "health", "text": "患者吕涛，诊断：原发性高血压 III 级。用药：二甲双胍 0.5g tid。住院号 ZY6170196。", "entities": [{"type": "MEDICAL_RECORD", "start": 42, "end": 51, "value": "ZY6170196"}]}
+{"id": "zh_v1_0135", "category": "health", "text": "患者司马丽静，诊断：支气管哮喘。用药：氨氯地平 5mg qd。住院号 ZY6986673。", "entities": [{"type": "MEDICAL_RECORD", "start": 35, "end": 44, "value": "ZY6986673"}]}
+{"id": "zh_v1_0136", "category": "health", "text": "患者冯兰芳，诊断：慢性浅表性胃炎。用药：二甲双胍 0.5g tid。住院号 ZY1836038。", "entities": [{"type": "MEDICAL_RECORD", "start": 38, "end": 47, "value": "ZY1836038"}]}
+{"id": "zh_v1_0137", "category": "health", "text": "患者冯丽，诊断：腰椎间盘突出。用药：阿司匹林 100mg qn。住院号 ZY1395222。", "entities": [{"type": "MEDICAL_RECORD", "start": 36, "end": 45, "value": "ZY1395222"}]}
+{"id": "zh_v1_0138", "category": "health", "text": "患者孔英勇，诊断：2 型糖尿病。用药：氨氯地平 5mg qd。住院号 ZY4317169。", "entities": [{"type": "MEDICAL_RECORD", "start": 35, "end": 44, "value": "ZY4317169"}]}
+{"id": "zh_v1_0139", "category": "health", "text": "患者上官秀勇，诊断：支气管哮喘。用药：氨氯地平 5mg qd。住院号 ZY1978810。", "entities": [{"type": "MEDICAL_RECORD", "start": 35, "end": 44, "value": "ZY1978810"}]}
+{"id": "zh_v1_0140", "category": "health", "text": "患者孙娟，诊断：支气管哮喘。用药：阿司匹林 100mg qn。住院号 ZY4786847。", "entities": [{"type": "MEDICAL_RECORD", "start": 35, "end": 44, "value": "ZY4786847"}]}
+{"id": "zh_v1_0141", "category": "health", "text": "患者孔秀，诊断：原发性高血压 III 级。用药：阿司匹林 100mg qn。住院号 ZY9368972。", "entities": [{"type": "MEDICAL_RECORD", "start": 42, "end": 51, "value": "ZY9368972"}]}
+{"id": "zh_v1_0142", "category": "health", "text": "患者何敏，诊断：2 型糖尿病。用药：二甲双胍 0.5g tid。住院号 ZY6096042。", "entities": [{"type": "MEDICAL_RECORD", "start": 36, "end": 45, "value": "ZY6096042"}]}
+{"id": "zh_v1_0143", "category": "health", "text": "患者Njur，诊断：腰椎间盘突出。用药：布地奈德吸入。住院号 ZY1262371。", "entities": [{"type": "MEDICAL_RECORD", "start": 31, "end": 40, "value": "ZY1262371"}]}
+{"id": "zh_v1_0144", "category": "health", "text": "患者施刚，诊断：原发性高血压 III 级。用药：阿司匹林 100mg qn。住院号 ZY7991036。", "entities": [{"type": "MEDICAL_RECORD", "start": 42, "end": 51, "value": "ZY7991036"}]}
+{"id": "zh_v1_0145", "category": "health", "text": "患者上官秀洋，诊断：慢性浅表性胃炎。用药：二甲双胍 0.5g tid。住院号 ZY3433005。", "entities": [{"type": "MEDICAL_RECORD", "start": 39, "end": 48, "value": "ZY3433005"}]}
+{"id": "zh_v1_0146", "category": "health", "text": "患者韩勇秀，诊断：支气管哮喘。用药：二甲双胍 0.5g tid。住院号 ZY5579188。", "entities": [{"type": "MEDICAL_RECORD", "start": 36, "end": 45, "value": "ZY5579188"}]}
+{"id": "zh_v1_0147", "category": "health", "text": "患者陶洋刚，诊断：慢性浅表性胃炎。用药：二甲双胍 0.5g tid。住院号 ZY2911883。", "entities": [{"type": "MEDICAL_RECORD", "start": 38, "end": 47, "value": "ZY2911883"}]}
+{"id": "zh_v1_0148", "category": "health", "text": "患者上官杰勇，诊断：原发性高血压 III 级。用药：布地奈德吸入。住院号 ZY8660667。", "entities": [{"type": "MEDICAL_RECORD", "start": 37, "end": 46, "value": "ZY8660667"}]}
+{"id": "zh_v1_0149", "category": "health", "text": "患者华丽桂，诊断：原发性高血压 III 级。用药：布地奈德吸入。住院号 ZY2247141。", "entities": [{"type": "MEDICAL_RECORD", "start": 36, "end": 45, "value": "ZY2247141"}]}
+{"id": "zh_v1_0150", "category": "health", "text": "患者周娜，诊断：支气管哮喘。用药：布地奈德吸入。住院号 ZY7088930。", "entities": [{"type": "MEDICAL_RECORD", "start": 28, "end": 37, "value": "ZY7088930"}]}
+{"id": "zh_v1_0151", "category": "trade_secret", "text": "并购标的清单（保密）：三家华东零部件厂，代号 P1/P2/P3。", "entities": []}
+{"id": "zh_v1_0152", "category": "trade_secret", "text": "渠道返点政策：直营 8%，区域代理 12%，年度返 5 个点不对外公开。", "entities": []}
+{"id": "zh_v1_0153", "category": "trade_secret", "text": "推荐系统召回层参数：top_k = 800，粗排 200，精排 32，阈值 0.37。", "entities": []}
+{"id": "zh_v1_0154", "category": "trade_secret", "text": "并购标的清单（保密）：三家华东零部件厂，代号 P1/P2/P3。", "entities": []}
+{"id": "zh_v1_0155", "category": "trade_secret", "text": "并购标的清单（保密）：三家华东零部件厂，代号 P1/P2/P3。", "entities": []}
+{"id": "zh_v1_0156", "category": "trade_secret", "text": "渠道返点政策：直营 8%，区域代理 12%，年度返 5 个点不对外公开。", "entities": []}
+{"id": "zh_v1_0157", "category": "trade_secret", "text": "Q4 未发布功能：内部代号 Aurora，计划提供本地向量缓存，发布日期为明年一月。", "entities": []}
+{"id": "zh_v1_0158", "category": "trade_secret", "text": "推荐系统召回层参数：top_k = 800，粗排 200，精排 32，阈值 0.37。", "entities": []}
+{"id": "zh_v1_0159", "category": "trade_secret", "text": "客户优先级排序：A 组 > B 组，B 组毛利率低于 20% 时优先 A 组。", "entities": []}
+{"id": "zh_v1_0160", "category": "trade_secret", "text": "我们对华东区的报价公式为：底价 = 成本 × 1.35，超过 500 台再让 3 个点。", "entities": []}
+{"id": "zh_v1_0161", "category": "trade_secret", "text": "我们的匹配算法核心是把二部图权重衰减设为 0.93，这个参数从未写进文档。", "entities": []}
+{"id": "zh_v1_0162", "category": "trade_secret", "text": "我们对华东区的报价公式为：底价 = 成本 × 1.35，超过 500 台再让 3 个点。", "entities": []}
+{"id": "zh_v1_0163", "category": "trade_secret", "text": "我们对华东区的报价公式为：底价 = 成本 × 1.35，超过 500 台再让 3 个点。", "entities": []}
+{"id": "zh_v1_0164", "category": "trade_secret", "text": "推荐系统召回层参数：top_k = 800，粗排 200，精排 32，阈值 0.37。", "entities": []}
+{"id": "zh_v1_0165", "category": "trade_secret", "text": "Q4 未发布功能：内部代号 Aurora，计划提供本地向量缓存，发布日期为明年一月。", "entities": []}
+{"id": "zh_v1_0166", "category": "trade_secret", "text": "客户优先级排序：A 组 > B 组，B 组毛利率低于 20% 时优先 A 组。", "entities": []}
+{"id": "zh_v1_0167", "category": "trade_secret", "text": "价格梯度：10 台以内不打折，11–50 台 92 折，50 台以上走特批。", "entities": []}
+{"id": "zh_v1_0168", "category": "trade_secret", "text": "我们对华东区的报价公式为：底价 = 成本 × 1.35，超过 500 台再让 3 个点。", "entities": []}
+{"id": "zh_v1_0169", "category": "trade_secret", "text": "我们的匹配算法核心是把二部图权重衰减设为 0.93，这个参数从未写进文档。", "entities": []}
+{"id": "zh_v1_0170", "category": "trade_secret", "text": "并购标的清单（保密）：三家华东零部件厂，代号 P1/P2/P3。", "entities": []}
+{"id": "zh_v1_0171", "category": "trade_secret", "text": "客户优先级排序：A 组 > B 组，B 组毛利率低于 20% 时优先 A 组。", "entities": []}
+{"id": "zh_v1_0172", "category": "trade_secret", "text": "客户优先级排序：A 组 > B 组，B 组毛利率低于 20% 时优先 A 组。", "entities": []}
+{"id": "zh_v1_0173", "category": "trade_secret", "text": "我们对华东区的报价公式为：底价 = 成本 × 1.35，超过 500 台再让 3 个点。", "entities": []}
+{"id": "zh_v1_0174", "category": "trade_secret", "text": "Q4 未发布功能：内部代号 Aurora，计划提供本地向量缓存，发布日期为明年一月。", "entities": []}
+{"id": "zh_v1_0175", "category": "trade_secret", "text": "我们的匹配算法核心是把二部图权重衰减设为 0.93，这个参数从未写进文档。", "entities": []}
+{"id": "zh_v1_0176", "category": "distractor", "text": "如何在 Python 中用正则匹配 IPv4 地址？", "entities": []}
+{"id": "zh_v1_0177", "category": "distractor", "text": "解释一下 TCP 三次握手的过程。", "entities": []}
+{"id": "zh_v1_0178", "category": "distractor", "text": "请把这个函数改成异步版本。", "entities": []}
+{"id": "zh_v1_0179", "category": "distractor", "text": "Kubernetes 的 Pod 和 Deployment 有什么区别？", "entities": []}
+{"id": "zh_v1_0180", "category": "distractor", "text": "帮我写一个 SQL 统计每日活跃用户。", "entities": []}
+{"id": "zh_v1_0181", "category": "distractor", "text": "什么是零知识证明，举一个简单例子。", "entities": []}
+{"id": "zh_v1_0182", "category": "distractor", "text": "CUDA 编译报错 nvcc fatal : Unknown option，怎么排查？", "entities": []}
+{"id": "zh_v1_0183", "category": "distractor", "text": "用 Rust 实现一个 LRU 缓存。", "entities": []}
+{"id": "zh_v1_0184", "category": "distractor", "text": "Transformer 的注意力机制时间复杂度是多少？", "entities": []}
+{"id": "zh_v1_0185", "category": "distractor", "text": "如何用 docker compose 部署 Postgres 和 Redis？", "entities": []}
+{"id": "zh_v1_0186", "category": "distractor", "text": "git rebase 和 git merge 的取舍？", "entities": []}
+{"id": "zh_v1_0187", "category": "distractor", "text": "给出一个比较好的 API 错误码设计。", "entities": []}
+{"id": "zh_v1_0188", "category": "distractor", "text": "解释 CAP 定理。", "entities": []}
+{"id": "zh_v1_0189", "category": "distractor", "text": "如何优化 Pandas 的 groupby 性能？", "entities": []}
+{"id": "zh_v1_0190", "category": "distractor", "text": "什么是 WAL，Postgres 为什么要用它？", "entities": []}
+{"id": "zh_v1_0191", "category": "distractor", "text": "请用 TypeScript 写一个防抖 hook。", "entities": []}
+{"id": "zh_v1_0192", "category": "distractor", "text": "MCP 协议里的 server 和 client 各自做什么？", "entities": []}
+{"id": "zh_v1_0193", "category": "distractor", "text": "Linux 下查看端口占用的命令。", "entities": []}
+{"id": "zh_v1_0194", "category": "distractor", "text": "如何给 CMake 工程加单元测试？", "entities": []}
+{"id": "zh_v1_0195", "category": "distractor", "text": "解释一下 JWT 的签名验证流程。", "entities": []}
+{"id": "zh_v1_0196", "category": "distractor", "text": "推荐几个开源的向量数据库。", "entities": []}
+{"id": "zh_v1_0197", "category": "distractor", "text": "如何判断一个数是否是 2 的幂（位运算）。", "entities": []}
+{"id": "zh_v1_0198", "category": "distractor", "text": "OAuth2 的授权码流程步骤。", "entities": []}
+{"id": "zh_v1_0199", "category": "distractor", "text": "如何在前端做无障碍（a11y）优化？", "entities": []}
+{"id": "zh_v1_0200", "category": "distractor", "text": "解释 Raft 选举超时的设计。", "entities": []}
+{"id": "zh_v1_0201", "category": "distractor", "text": "Python GIL 对多线程的影响及绕法。", "entities": []}
+{"id": "zh_v1_0202", "category": "distractor", "text": "如何安全地存储用户密码（哈希方案）？", "entities": []}
+{"id": "zh_v1_0203", "category": "distractor", "text": "一个 HTTP 请求从输入 URL 到渲染的过程。", "entities": []}
+{"id": "zh_v1_0204", "category": "distractor", "text": "什么是 AVX 指令集，对推理加速有多大作用？", "entities": []}
+{"id": "zh_v1_0205", "category": "distractor", "text": "如何用 Nginx 做灰度发布？", "entities": []}
+{"id": "zh_v1_0206", "category": "distractor", "text": "解释 Kafka 消息有序性的保证方式。", "entities": []}
+{"id": "zh_v1_0207", "category": "distractor", "text": "写一个 shell 脚本统计日志中的 5xx 比例。", "entities": []}
+{"id": "zh_v1_0208", "category": "distractor", "text": "什么是幂等设计，支付场景怎么用？", "entities": []}
+{"id": "zh_v1_0209", "category": "distractor", "text": "Redis 分布式锁的常见坑。", "entities": []}
+{"id": "zh_v1_0210", "category": "distractor", "text": "如何评估一个 7B 模型的量化损失？", "entities": []}
+{"id": "zh_v1_0211", "category": "distractor", "text": "解释 backpropagation 的链式法则。", "entities": []}
+{"id": "zh_v1_0212", "category": "distractor", "text": "SQLite 和 DuckDB 的适用场景。", "entities": []}
+{"id": "zh_v1_0213", "category": "distractor", "text": "如何设计一个限流中间件？", "entities": []}
+{"id": "zh_v1_0214", "category": "distractor", "text": "解释语义缓存和精确缓存的区别。", "entities": []}
+{"id": "zh_v1_0215", "category": "distractor", "text": "怎么给 API 写幂等的重试逻辑？", "entities": []}
+{"id": "zh_v1_0216", "category": "distractor", "text": "什么是 mmap，推理框架为什么用它？", "entities": []}
+{"id": "zh_v1_0217", "category": "distractor", "text": "如何用 Prometheus 做模型延迟监控？", "entities": []}
+{"id": "zh_v1_0218", "category": "distractor", "text": "解释回溯算法和剪枝。", "entities": []}
+{"id": "zh_v1_0219", "category": "distractor", "text": "如何设计数据库的软删除？", "entities": []}
+{"id": "zh_v1_0220", "category": "distractor", "text": "什么是 B 树和 LSM 树的取舍？", "entities": []}
+{"id": "zh_v1_0221", "category": "structured", "text": "调用工具 transfer 的 arguments 为 {\"action\": \"transfer\", \"account\": \"62258866500696326\", \"amount\": 5000}", "entities": []}
+{"id": "zh_v1_0222", "category": "structured", "text": "{\"name\": \"王芳\", \"phone\": \"18676873471\", \"note\": \"老客户\"}", "entities": []}
+{"id": "zh_v1_0223", "category": "structured", "text": "tool: verifyIdentity, input={id_number: \"110105198806032044\", purpose: \"kyc\"}", "entities": []}
+{"id": "zh_v1_0224", "category": "structured", "text": "{\"tools\": [{\"name\": \"createOrder\", \"owner\": \"Jedd\"}], \"mode\": \"auto\"}", "entities": []}
+{"id": "zh_v1_0225", "category": "structured", "text": "query supplier where uscc = \"3T2M6UFMN7UMTKB3WJ\" and status = \"active\"", "entities": []}
+{"id": "zh_v1_0226", "category": "structured", "text": "调用工具 transfer 的 arguments 为 {\"action\": \"transfer\", \"account\": \"6217004400771923408\", \"amount\": 5000}", "entities": []}
+{"id": "zh_v1_0227", "category": "structured", "text": "{\"name\": \"王芳\", \"phone\": \"13045919950\", \"note\": \"老客户\"}", "entities": []}
+{"id": "zh_v1_0228", "category": "structured", "text": "tool: verifyIdentity, input={id_number: \"110105199510025149\", purpose: \"kyc\"}", "entities": []}
+{"id": "zh_v1_0229", "category": "structured", "text": "{\"tools\": [{\"name\": \"createOrder\", \"owner\": \"上官涛勇\"}], \"mode\": \"auto\"}", "entities": []}
+{"id": "zh_v1_0230", "category": "structured", "text": "query supplier where uscc = \"3YHM3PNKLQK7K4W91P\" and status = \"active\"", "entities": []}
+{"id": "zh_v1_0231", "category": "structured", "text": "调用工具 transfer 的 arguments 为 {\"action\": \"transfer\", \"account\": \"6222020850082162\", \"amount\": 5000}", "entities": []}
+{"id": "zh_v1_0232", "category": "structured", "text": "{\"name\": \"王芳\", \"phone\": \"18674180165\", \"note\": \"老客户\"}", "entities": []}
+{"id": "zh_v1_0233", "category": "structured", "text": "tool: verifyIdentity, input={id_number: \"440304199104168663\", purpose: \"kyc\"}", "entities": []}
+{"id": "zh_v1_0234", "category": "structured", "text": "{\"tools\": [{\"name\": \"createOrder\", \"owner\": \"周明洋\"}], \"mode\": \"auto\"}", "entities": []}
+{"id": "zh_v1_0235", "category": "structured", "text": "query supplier where uscc = \"9LNFQ6JF85R6Q56LHK\" and status = \"active\"", "entities": []}
+{"id": "zh_v1_0236", "category": "structured", "text": "调用工具 transfer 的 arguments 为 {\"action\": \"transfer\", \"account\": \"6217003178623586141\", \"amount\": 5000}", "entities": []}
+{"id": "zh_v1_0237", "category": "structured", "text": "{\"name\": \"王芳\", \"phone\": \"13836475027\", \"note\": \"老客户\"}", "entities": []}
+{"id": "zh_v1_0238", "category": "structured", "text": "tool: verifyIdentity, input={id_number: \"110105199008272582\", purpose: \"kyc\"}", "entities": []}
+{"id": "zh_v1_0239", "category": "structured", "text": "{\"tools\": [{\"name\": \"createOrder\", \"owner\": \"司马勇军\"}], \"mode\": \"auto\"}", "entities": []}
+{"id": "zh_v1_0240", "category": "structured", "text": "query supplier where uscc = \"3MU9T41GMH0BJRF0R2\" and status = \"active\"", "entities": []}

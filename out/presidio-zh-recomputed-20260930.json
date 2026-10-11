@@ -1,0 +1,69 @@
+{
+  "tool": "presidio-zh",
+  "mode": "scan-only",
+  "corpus_size": 240,
+  "fnr_by_category": {
+    "address": {
+      "miss": 0,
+      "total": 20,
+      "fnr": 0.0
+    },
+    "bank_card": {
+      "miss": 0,
+      "total": 15,
+      "fnr": 0.0
+    },
+    "email": {
+      "miss": 0,
+      "total": 15,
+      "fnr": 0.0
+    },
+    "health": {
+      "miss": 0,
+      "total": 20,
+      "fnr": 0.0
+    },
+    "id_card": {
+      "miss": 0,
+      "total": 18,
+      "fnr": 0.0
+    },
+    "mobile": {
+      "miss": 0,
+      "total": 20,
+      "fnr": 0.0
+    },
+    "name": {
+      "miss": 18,
+      "total": 25,
+      "fnr": 0.72
+    },
+    "uscc": {
+      "miss": 0,
+      "total": 14,
+      "fnr": 0.0
+    }
+  },
+  "fp": {
+    "replaced_tokens": 0,
+    "total_tokens": 148,
+    "rate": 0.0
+  },
+  "trade_secret_control": {
+    "passed_through": 25,
+    "total": 25,
+    "note": "无 PII 商业秘密 100% 原样放行 = 设计事实，证明脱敏不解决 D3"
+  },
+  "gate": {
+    "G1": "FAIL",
+    "violations": [
+      {
+        "category": "name",
+        "fnr": 0.72,
+        "threshold": 0.12,
+        "action": "该类别降级为不出网（gateway 配 deny）"
+      }
+    ]
+  },
+  "impl": "recognizers.cn_recognizers.detect + zh_ner.ner_fn (rules + zh NER)"
+}
