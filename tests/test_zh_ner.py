@@ -45,5 +45,18 @@ types = {t for _, _, t in spans}
 check('汇总含 MEDICAL_RECORD', 'MEDICAL_RECORD' in types)
 check('汇总含 CN_NAME', 'CN_NAME' in types)
 
+print('[绕过变体回归（2026-10-29 审查新增）]')
+check('姓名+称谓中间插空格："张三丰 经理"', find_names('请通知 张三丰 经理确认') != [])
+check('姓名+称谓全角空格："张三丰\u3000经理"', find_names('张三丰\u3000经理') != [])
+check('称谓表补"同志"："王小明同志"', find_names('王小明同志参加会议') != [])
+
 print(f'\n{PASS} passed, {FAIL} failed')
-sys.exit(1 if FAIL else 0)
+
+
+def test_all_checks_pass():
+    """pytest 入口：脚本体在 import 时已执行全部 check，这里断言无失败。"""
+    assert FAIL == 0, f'{FAIL} checks failed'
+
+
+if __name__ == '__main__':
+    sys.exit(1 if FAIL else 0)
