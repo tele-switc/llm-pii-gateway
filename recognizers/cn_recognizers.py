@@ -9,8 +9,16 @@ import re
 
 # ---------- 归一化 ----------
 
-_FW = {0xFF10 + i: chr(0x30 + i) for i in range(10)}
-_FW_DASH = {0xFF0D: '-', 0x2012: '-', 0x2013: '-', 0x2014: '-', 0x2212: '-'}
+# 全角 ASCII 整段（U+FF01–U+FF5E）→ 半角；此前只映射了数字，导致
+# 全角 Ｘ（身份证校验位）、全角 ＠/．（邮箱）、全角字母（USCC）成为绕过面
+_FW = {0xFF01 + i: chr(0x21 + i) for i in range(0x5E)}
+_FW_DASH = {0x2012: '-', 0x2013: '-', 0x2014: '-', 0x2212: '-'}
+# 全角空格/中文字符分隔空格 → 半角空格（落入数字之间分隔符剔除逻辑）
+_IDEAL_SPACE = {0x3000: ' ', 0x2002: ' ', 0x2003: ' '}
+# ASCII 小写 → 大写（1:1，偏移不变）：覆盖小写变体的身份证校验位与 USCC
+_LOWER = {0x61 + i: 0x41 + i for i in range(26)}
+# 零宽/不可见字符：常用作「分隔符插入」绕过（138<ZWSP>1234<ZWSP>4321），直接剔除
+_ZW = set('\u200b\u200c\u200d\u2060\ufeff\u00ad')
 
 
 def normalize(text: str) -> str:
@@ -21,13 +29,18 @@ def normalize_mapped(text: str):
     """归一化并返回 (归一化文本, 偏移映射)，映射[i] = 归一化文本第 i 字符在原文本的下标。
 
     用于把"归一化后扫出的区间"还原回原文坐标（§5.2：先归一化再匹配）。
+    所有替换均 1:1（translate 阶段），剔除阶段（零宽字符、数字间分隔符）通过
+    显式索引链保持映射正确。
     """
-    pos = []
-    # 1) 全角→半角 / 连字符归一 / "转"→'-'（1:1 替换）
-    t = text.translate({**_FW, **_FW_DASH})
-    pos.append(list(range(len(t))))
+    # 1) 1:1 替换：全角→半角 / 连字符归一 / "转"→'-'，再过一道小写→大写
+    #    （两次 translate 均 1:1，偏移不变；全角小写７ｘ 先转半角小写再转大写）
+    t = text.translate({**_FW, **_FW_DASH, **_IDEAL_SPACE})
     t = t.replace('转', '-')
-    # 2) 剔除夹在数字之间的分隔符
+    t = t.translate(_LOWER)
+    # 2) 剔除零宽字符，保留「归一化串下标 → 原文下标」映射链
+    idx = [i for i, ch in enumerate(t) if ch not in _ZW]
+    t = ''.join(t[i] for i in idx)
+    # 3) 剔除夹在数字之间的分隔符
     out, p = [], []
     i, n = 0, len(t)
     while i < n:
@@ -35,7 +48,7 @@ def normalize_mapped(text: str):
             i += 1
             continue  # 删除，不映射
         out.append(t[i])
-        p.append(i)
+        p.append(idx[i])
         i += 1
     return ''.join(out), p
 

@@ -126,5 +126,38 @@ check('重叠消解不产生交叉区间', all(
     (a == b) or (a[1] <= b[0] or b[1] <= a[0])
     for a in spans_ov for b in spans_ov))
 
+print('\n[绕过变体回归（2026-10-29 审查新增）]')
+# 全角空格 / 零宽字符插入：旧归一化只剔半角空格与 '-'，这两类可整段绕过
+check('手机：全角空格分隔 138\u30001234\u30004321', find_mobiles(normalize('手机 138\u30001234\u30004321')) != [])
+check('手机：零宽空格插入 138<ZWSP>1234<ZWSP>4321', find_mobiles(normalize('138\u200b1234\u200b4321')) != [])
+check('手机：BOM 字符插入', find_mobiles(normalize('138\ufeff1234\ufeff4321')) != [])
+check('手机：软连字符插入', find_mobiles(normalize('138\u00ad1234\u00ad4321')) != [])
+# 用校验位为 X 的合法号（语料同款），避免用例自身校验位错误
+id_x = '33010619780318458X'
+zw_id = id_x[:6] + '\u200b' + id_x[6:]
+check('身份证：零宽字符插入', find_id_cards(normalize(zw_id)) != [])
+check('身份证：全角校验位Ｘ', find_id_cards(normalize(id_x[:17] + '\uFF38')) != [])
+check('手机：全角数字混排（回归确认）', find_mobiles(normalize('１３８12344321')) != [])
+bank_spaced = '\u3000'.join([bank_ok[i:i + 4] for i in range(0, len(bank_ok), 4)])
+check('银行卡：全角空格分组', find_bank_cards(normalize(bank_spaced)) != [])
+check('邮箱：全角＠与全角域名', find_emails(normalize('zhangwei\uFF20example\uFF0Ecom')) != [])
+check('USCC：小写变体', find_usccs(normalize(u_ok.lower())) != [])
+check('USCC：全角录入', find_usccs(normalize(u_ok.translate({ord(c): chr(ord(c) + 0xFEE0) if c.isascii() and c.isalpha() else ord(c) for c in u_ok}))) != [])
+# 归一化改动不得破坏原文坐标：detect 返回的区间要能覆盖原文（含不可见字符）
+span_zw = detect('电话 138\u200b1234\u200b4321 请回拨')
+check('detect 原文坐标回映：零宽手机整段覆盖',
+      span_zw and span_zw[0][0] <= 3 and '13812344321' == ''.join(
+          c for c in '电话 138\u200b1234\u200b4321 请回拨'[span_zw[0][0]:span_zw[0][1]] if not c.isspace() and c not in '\u200b'))
+# 负例保持：小数点不是分隔符（防止 '2.13812344321' 合并成 12 位漏检倒退）
+check('负例：小数点仍不作数字分隔符', find_mobiles(normalize('值 2.13812344321 结束')) != [])
+
 print(f'\n{PASS} passed, {FAIL} failed')
-sys.exit(1 if FAIL else 0)
+
+
+def test_all_checks_pass():
+    """pytest 入口：脚本体在 import 时已执行全部 check，这里断言无失败。"""
+    assert FAIL == 0, f'{FAIL} checks failed'
+
+
+if __name__ == '__main__':
+    sys.exit(1 if FAIL else 0)
