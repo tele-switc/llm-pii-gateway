@@ -7,6 +7,7 @@ vault/
 
 # 审计与演练产物
 audit/drill_audit.jsonl
+audit/audit.jsonl
 .audit_test.jsonl
 .vault_test*/
 
