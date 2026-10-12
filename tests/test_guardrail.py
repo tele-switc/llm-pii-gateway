@@ -118,8 +118,62 @@ data = {'messages': [{'role': 'user', 'content': '普通问题'}], 'model': 'zdr
 out = run_hook(data)
 check('自报 D3 → 强制 local', out['model'] == 'local-default')
 
+print('[缺标签按 D3（§5.3-2 回归，2026-10-29 审查新增）]')
+if os.path.exists(os.environ['AUDIT_LOG']):
+    os.remove(os.environ['AUDIT_LOG'])
+# 未标注 data_class 且内容含达标 PII：旧行为会被"洗白"成脱敏后出网（ZDRCLOUD），属 fail-open
+data = {'messages': [{'role': 'user', 'content': '客户手机 13812344321'}], 'model': 'zdr-openrouter'}
+out = run_hook(data)
+check('缺标签+PII → 强制 local 不出网', out['model'] == 'local-default')
+r = audit_lines()[-1]
+check('缺标签审计 egress_decision=LOCAL 且 claim 记录原样', r['egress_decision'] == 'LOCAL' and r['data_class_claimed'] == 'UNLABELED(D3)')
+# 乱标签同样按 D3
+data = {'messages': [{'role': 'user', 'content': '客户手机 13812344321'}], 'model': 'zdr-openrouter',
+        'litellm_metadata': {'data_class': 'PUBLIC'}}
+out = run_hook(data)
+check('不可识别标签 → 按 D3 处理', out['model'] == 'local-default')
+
+print('[非扫描字段校验已接入主出口（§6.3 行 2 回归）]')
+# 旧代码里 validate_no_pii_in_unscanned 从未被 guardrail 调用（死代码），metadata 带 PII 会静默出网
+data = {'messages': [{'role': 'user', 'content': '普通问题'}], 'model': 'zdr-openrouter',
+        'litellm_metadata': {'request_id': 't-101', 'data_class': 'D1', 'contact': '张三丰经理'}}
+try:
+    run_hook(data)
+    check('metadata 值含姓名 → 主出口 DENY（raise）', False)
+except ValueError as e:
+    check('metadata 值含姓名 → 主出口 DENY（raise）', 'fail-closed' in str(e))
+rows = [x for x in audit_lines() if x['request_id'] == 't-101']
+check('主出口 DENY 落审计 DENY 行', rows and rows[-1]['egress_decision'] == 'DENY')
+
+print('[content 属扫描面：含 PII 走脱敏而不是 DENY]')
+data = {'messages': [{'role': 'user', 'content': '客户手机 13812344321，身份证 510107200402242114'}],
+        'model': 'zdr-openrouter', 'litellm_metadata': {'request_id': 't-102', 'data_class': 'D2'}}
+out = run_hook(data)
+check('content 含 PII → 正常脱敏放行', '13812344321' not in out['messages'][0]['content'] and '⟨' in out['messages'][0]['content'])
+r = [x for x in audit_lines() if x['request_id'] == 't-102'][0]
+check('n_redacted_spans 计数修复（=实体数 2，非恒 2×）', r['n_redacted_spans'] == 2)
+
+print('[litellm 挂接层（2026-10-29 审查新增）]')
+# 裸函数路径会被 litellm pre-call 派发静默跳过（fail-open）；必须暴露 CustomGuardrail 实例
+check('proxy_handler_instance 存在且实现了 async_pre_call_hook',
+      hasattr(g.proxy_handler_instance, 'async_pre_call_hook'))
+import yaml
+_cfg = yaml.safe_load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                        'gateway', 'config.yaml'), encoding='utf-8'))
+_cb = (_cfg.get('litellm_settings') or {}).get('callbacks') or []
+check('config.yaml callbacks 指向实例而非裸函数',
+      _cb and all(c.endswith('.proxy_handler_instance') for c in _cb))
+
 # 清理：整个临时目录
 shutil.rmtree(_TMP, ignore_errors=True)
 
 print(f'\n{PASS} passed, {FAIL} failed')
-sys.exit(1 if FAIL else 0)
+
+
+def test_all_checks_pass():
+    """pytest 入口：脚本体在 import 时已执行全部 check，这里断言无失败。"""
+    assert FAIL == 0, f'{FAIL} checks failed'
+
+
+if __name__ == '__main__':
+    sys.exit(1 if FAIL else 0)

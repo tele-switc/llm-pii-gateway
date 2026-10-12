@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from recognizers.cn_recognizers import detect  # noqa: E402
 from recognizers.zh_ner import ner_fn  # noqa: E402
 from gateway import vault as _vault  # noqa: E402
+from gateway import bypass as _bypass  # noqa: E402
 
 AUDIT_PATH = os.environ.get(
     'AUDIT_LOG', os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'audit', 'audit.jsonl'))
@@ -114,7 +115,8 @@ def _apply_redaction(data, decision):
     data['messages'] = redacted_msgs
     ref = _vault.save(session_id, mapping) if mapping else None
     body = json.dumps(all_spans_texts or [m.get('content') for m in redacted_msgs], ensure_ascii=False)
-    return ref, body, sum(len(v) for v in mapping.values())
+    # len(mapping)：占位符实体数。旧写法 sum(len(v)) 数的是内层 dict 键数，恒为 2×实体数
+    return ref, body, len(mapping)
 
 
 async def pii_guardrail(user_api_key_dict, data, call_type):
@@ -123,20 +125,24 @@ async def pii_guardrail(user_api_key_dict, data, call_type):
     metadata = data.get('litellm_metadata') or {}
     request_id = metadata.get('request_id', str(uuid.uuid4()))
     texts = list(_texts(data))
-    claimed = metadata.get('data_class', 'UNLABELED(D3)')
+    claimed = metadata.get('data_class') or 'UNLABELED(D3)'
     actor = user_api_key_dict.get('key_alias', 'unknown') if user_api_key_dict else 'unknown'
+    # §5.3-2 缺标签一律按 D3：只认 D0/D1/D2 前缀，其余（含 UNLABELED、乱标）按 D3 处理（不出网）
+    claim_is_d3 = not claimed.startswith(('D0', 'D1', 'D2'))
 
     try:
+        # §6.3 行 2：非扫描字段（tools/name/user/metadata/JSON key）含 PII → 发现即 DENY（fail-closed）
+        _bypass.validate_no_pii_in_unscanned(data)
         decision, detected, d3_hit = _decide(texts)
-    except Exception as exc:  # fail-closed：检测层异常一律阻断（§5.3-1）
+    except Exception as exc:  # fail-closed：检测层/校验层异常一律阻断（§5.3-1）
         _audit({'ts': ts, 'request_id': request_id, 'actor': actor,
-                'data_class_claimed': claimed, 'detected_classes': ['<detector-error>'],
+                'data_class_claimed': claimed, 'detected_classes': ['<fail-closed>'],
                 'egress_decision': 'DENY', 'provider': None, 'model': data.get('model'),
                 'error': repr(exc)})
-        raise ValueError(f'[pii_guardrail] detector failure -> fail-closed deny: {exc!r}') from exc
+        raise ValueError(f'[pii_guardrail] fail-closed deny: {exc!r}') from exc
 
-    # 标签与检测取严（§5.3-3）：调用方自报 D3 时不得被检测"洗白"
-    if claimed.startswith('D3'):
+    # 标签与检测取严（§5.3-3）：调用方自报 D3（或没标签）时不得被检测"洗白"
+    if claim_is_d3:
         decision, d3_hit = 'local', True
 
     vault_ref, n_redacted = None, 0
@@ -176,3 +182,34 @@ async def pii_guardrail(user_api_key_dict, data, call_type):
 
     # zdrcLOUD/local 均已完成路由改写，放行；deny 仅由 detector 异常触发（上方已 raise）
     return data
+
+
+# —— LiteLLM 挂接层 ——
+# litellm proxy 的 pre-call 钩子只执行 CustomGuardrail / 覆写了 async_pre_call_hook 的
+# CustomLogger 实例；把裸函数路径写进 litellm_settings.callbacks 会被静默跳过（fail-open）。
+# 因此对外暴露 proxy_handler_instance 实例，config.yaml 的 callbacks 指向该实例。
+# litellm 未安装（纯跑单测/评测的环境，见 README）时退化为普通对象，不影响本模块导入。
+try:
+    from litellm.integrations.custom_guardrail import CustomGuardrail as _BaseGuardrail
+    _HAS_LITELLM = True
+except Exception:  # pragma: no cover - 无 litellm 环境
+    _BaseGuardrail = object
+    _HAS_LITELLM = False
+
+
+class PIIGuardrail(_BaseGuardrail):
+    """把上方 async 函数包装成 litellm 可派发的前置调用护栏。"""
+
+    def __init__(self, **kwargs):
+        kwargs.setdefault('guardrail_name', 'pii-guardrail')
+        kwargs.setdefault('event_hook', 'pre_call')
+        if _HAS_LITELLM:
+            super().__init__(**kwargs)
+        else:  # pragma: no cover - 无 litellm 环境
+            self.guardrail_name = kwargs['guardrail_name']
+
+    async def async_pre_call_hook(self, user_api_key_dict, cache, data, call_type):
+        return await pii_guardrail(user_api_key_dict, data, call_type)
+
+
+proxy_handler_instance = PIIGuardrail()

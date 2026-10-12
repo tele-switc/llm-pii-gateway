@@ -129,9 +129,10 @@ def validate_no_pii_in_unscanned(data: dict):
     但 content 之外的兄弟字段（如 messages[].tool_calls）属于非扫描面，照查。
     返回 None 通过；抛 ValueError 阻断（fail-closed）。
     """
-    # 1) JSON key
+    # 1) JSON key 与非扫描值（messages 整体除外：content 属主出口扫描面，
+    #    含 PII 应"脱敏后放行"而不是 DENY；content 的兄弟字段由第 2 段专查）
     all_strings = []
-    _walk_strings(data, 'req', all_strings)
+    _walk_strings({k: v for k, v in data.items() if k != 'messages'}, 'req', all_strings)
     for path, s in all_strings:
         if s in ('user', 'system', 'assistant', 'tool') or not s.strip():
             continue  # 常规角色名/空串

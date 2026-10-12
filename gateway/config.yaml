@@ -48,7 +48,9 @@ general_settings:
 
 litellm_settings:
   # 自定义 guardrail：检测 → 分级 → 路由/拒绝（见 gateway/pii_guardrail.py）
-  callbacks: ["gateway.pii_guardrail.pii_guardrail"]
+  # 注意：必须指向 CustomGuardrail *实例*（proxy_handler_instance）；
+  # litellm 会静默跳过裸函数路径，护栏不跑 = fail-open（2026-10-29 审查修复）
+  callbacks: ["gateway.pii_guardrail.proxy_handler_instance"]
   request_timeout: 30
 
 # ─────────────────────────────────────────────────────────────

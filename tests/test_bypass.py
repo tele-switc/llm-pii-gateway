@@ -105,8 +105,39 @@ try:
 except ValueError as e:
     check('JSON key/值 含手机号 → DENY', 'DENY' in str(e))
 
+print('[绕过变体与 content 扫描面回归（2026-10-29 审查新增）]')
+# content 属主出口扫描面（脱敏后放行），全量 walk 不得把含 PII 的 content 误 DENY
+content_pii = {'messages': [{'role': 'user', 'content': '客户手机 13812344321，身份证 510107200402242114'}]}
+check('content 含 PII → 非扫描字段校验放行（脱敏面处理）', b.validate_no_pii_in_unscanned(content_pii) is None)
+# 姓名+称谓插空格：绕过面也要 DENY
+bad6 = {'messages': [{'role': 'user', 'content': 'hi'}], 'user': '张三丰 经理'}
+try:
+    b.validate_no_pii_in_unscanned(bad6)
+    check('顶层 user「张三丰 经理」（空格变体）→ DENY', False)
+except ValueError as e:
+    check('顶层 user「张三丰 经理」（空格变体）→ DENY', 'DENY' in str(e))
+# 零宽字符插入的手机号在 APM 面上同样要脱敏
+apm_zw = b.scrub_for_apm({'msg': '手机 138\u200b1234\u200b4321'})[0]
+check('APM 脱敏：零宽字符插入的手机号被替换', '1234' not in apm_zw['msg'])
+# 小写 USCC 在 tools 定义里要 DENY
+bad7 = {'messages': [{'role': 'user', 'content': 'hi'}],
+        'tools': [{'name': 'q', 'description': '税号 91330106ma27x8y9af 的企业'}]}
+try:
+    b.validate_no_pii_in_unscanned(bad7)
+    check('tools 定义含小写 USCC → DENY', False)
+except ValueError as e:
+    check('tools 定义含小写 USCC → DENY', 'DENY' in str(e))
+
 # 清理：整个临时目录
 shutil.rmtree(_TMP, ignore_errors=True)
 
 print(f'\n{PASS} passed, {FAIL} failed')
-sys.exit(1 if FAIL else 0)
+
+
+def test_all_checks_pass():
+    """pytest 入口：脚本体在 import 时已执行全部 check，这里断言无失败。"""
+    assert FAIL == 0, f'{FAIL} checks failed'
+
+
+if __name__ == '__main__':
+    sys.exit(1 if FAIL else 0)
