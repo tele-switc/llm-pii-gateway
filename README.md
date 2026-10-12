@@ -50,6 +50,8 @@ python tests/test_recognizers.py
 python tests/test_guardrail.py
 python tests/test_zh_ner.py
 python tests/test_bypass.py
+# 等价的一条式跑法（2026-10-29 起测试脚本兼容 pytest）：
+python -m pytest tests -q
 
 # 2. 复现评测数字（scan-only，不需要 API key）
 python poc/run_gateway_test.py --tool presidio-zh --mode scan-only \
@@ -86,8 +88,8 @@ litellm --config gateway/config.yaml --port 4000
 > 该文件自身的 `note` 字段仍写着"100% 原样放行"，与它自己的数字不符；
 > `docs/state-addendum-20260930.md` 把这条列为"出处链断裂"，属已知问题，读那份 JSON 时按数字为准。
 
-单测复跑（2026-10-11）：`test_recognizers` 23/23、`test_guardrail` 19/19、`test_zh_ner` 15/15、
-`test_bypass` 17/17。
+单测复跑（2026-10-29）：`test_recognizers` 36/36、`test_guardrail` 28/28、`test_zh_ner` 18/18、
+`test_bypass` 21/21；`python -m pytest tests -q` 亦可用（4 个入口，断言各脚本 check 全过）。
 
 结论最重要的一条：**脱敏是概率性控制**。它把"可识别泄露"降成"部分漏检 + 不可识别内容外发"，
 对不含 PII 的商业机密无效——所以数据分级（L0）不能省，D3 只能靠不出网。
@@ -105,6 +107,23 @@ litellm --config gateway/config.yaml --port 4000
 3. **不扫多模态**：图片内文字、PDF OCR 均未实现。当前处置是**禁止任何图像上传**。
 4. `_apply_redaction` 对 image part 的直接 raise 仍待补（`g2/bypass_review.md` 遗留 R1）。
 5. 条款/合同层（DPA、跨境、供应商书面授权）不是技术问题，本仓库不回答。
+6. **点号分隔的号码（`138.1234.4321`）仍不识别（2026-10-29 审查记录）**：把 `.` 加入数字间
+   分隔符剔除会让 `2.13812344321` 合并成 12 位串反而把原本能命中的号码吞掉，属负收益；
+   小数/版本号误合并的 FP 面也更大。要覆盖需按"候选分段回接"另行设计，不是改一行分隔符表。
+   2026-10-29 同轮修复的绕过面：全角空格、零宽字符（ZWSP/BOM/软连字符）插入、全角 Ｘ/＠/．、
+   USCC 小写变体、「姓名 + 空格 + 称谓」、「同志」称谓。
+
+## 审查修复记录（2026-10-29）
+
+- `pii_guardrail()` 主出口原先**从未调用** `validate_no_pii_in_unscanned()`（§6.3 行 2 的 DENY
+  只存在于测试里）；现已接入并 fail-closed 记审计 DENY。同时修掉该校验自身把
+  `messages[].content`（扫描面，应脱敏放行）误纳入全量 DENY 的矛盾。
+- 缺标签/不可识别标签不再被内容检测"洗白"：只有 `D0/D1/D2` 前缀算有效标注，其余一律按 D3
+  处理（不出网），与 §5.3 第 2 条对齐。
+- 审计字段 `n_redacted_spans` 原先恒为实体数 ×2（内层 dict 键数），改为占位符实体数。
+- **起网关路径修复**：litellm 的 pre-call 钩子只派发 `CustomGuardrail`/`CustomLogger` **实例**，
+  原 `config.yaml` 把裸函数写进 `litellm_settings.callbacks` 会被**静默跳过**（护栏完全不跑，
+  fail-open）。现导出 `gateway.pii_guardrail.proxy_handler_instance`，配置同步指向实例。
 
 ## 凭据政策
 
